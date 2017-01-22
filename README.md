@@ -10,14 +10,14 @@ Instead of
 ```js
 const { CLIEngine } = require('eslint')
 const cli = new CLIEngine({ some: 'options' })
-cli.executeOnText('some', 'texts')
+cli.executeOnText('"some" && "code"')
 ```
 
 Do
 
 ```js
 const lintText = require('lint-text')
-lintText({ some: 'options' }, ['some', 'texts'])
+lintText({ some: 'options' }, ['"some" && "code"'])
 ```
 
 ## Features
@@ -28,11 +28,11 @@ lintText({ some: 'options' }, ['some', 'texts'])
 
 ## API
 
-### `lintText(options, texts)`
+### `lintText(options, text)`
 
 - `options`:  
   will be passed to the `CLIEngine` constructor ([ESLint docs](http://eslint.org/docs/developer-guide/nodejs-api#cliengine))
-- `texts`:  
-  will be passed as arguments to `executeOnText` ([ESLint docs](http://eslint.org/docs/developer-guide/nodejs-api#executeontext))
+- `text`:  
+  will be passed as first argument to `executeOnText` ([ESLint docs](http://eslint.org/docs/developer-guide/nodejs-api#executeontext))
 
 Returns what `executeOnText` returns.
